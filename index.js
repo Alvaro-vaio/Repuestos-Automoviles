@@ -49,6 +49,13 @@ app.put('/actualizar-repuesto/:id', (req, res) => {
         res.status(404).json({mensaje: 'Repuesto No Encontrado'});
     }
 });
+//endpoint 5 Eliminar Repuesto
+app.delete('/eliminar-repuesto/:id', (req,res) => {
+    const id = parseInt(req.params.id);
+    reAutomovil = repuestosAutomoviles.filter(repuesto => repuesto.id !== id);
+    res.status(201).json({mensaje : 'Se elimino Correctamente en Repuesto de la Lista'});
+    console.log(reAutomovil);
+});
 app.listen(PORT, () => {
 console.log("Servidor Corriendo en el Puerto http://localhost:" + PORT);
 });
